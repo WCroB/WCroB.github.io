@@ -29,15 +29,15 @@
 .main {
     text-align: left;
     background: var(--black);
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.aside-1 {
+.aside-m1 {
     background: var(--black);
 }
 
-.aside-2 {
+.aside-m2 {
     background: var(--black);
 }
 
@@ -55,16 +55,14 @@
 }
 
 @media all and (min-width: 1000px) {
-    .main {
-        flex: 2 0px;
-    }
-    .aside-1 {
+    .aside-m1 {
         order: 1;
     }
     .main {
+        flex: 2 0px;
         order: 2;
     }
-    .aside-2 {
+    .aside-m2 {
         order: 3;
     }
     .footer {
@@ -80,19 +78,19 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0px;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     margin-top: 0%;
     margin-bottom: 3rem;
 }
 
 p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 200;
 }
