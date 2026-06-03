@@ -5,7 +5,7 @@
     --white: #ffffff;
     --black: #000000;
 
-    --cutoff: 680px;
+    --cutoff: 900px;
 }
 
 * {
@@ -64,8 +64,18 @@ main .inner {
 }
 
 main h1 {
-    font-size: 28px;
+    font-size: 22px;
     margin: 24px 0 8px;
+}
+
+#intro {
+    margin-bottom: 0px;
+}
+
+#subintro {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.2;
 }
 
 main p {
