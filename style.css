@@ -14,12 +14,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: var(--black);
-    font-family: "Work Sans";
-    color: var(--white);
-}
-
 .page {
     max-width: var(--cutoff);
     margin: 0 auto;
@@ -27,28 +21,46 @@ body {
     flex-direction: column;
 }
 
+body {
+    font-family: "Work Sans";
+    background: var(--black);
+    color: var(--white);
+}
+
 header {
     background: var(--primary-color);
     color: var(--black);
     width: 100%;
     margin: 0;
-    padding: 80px 24px;
 }
 
 header .inner {
     max-width: var(--cutoff);
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 12px 12px;
+    text-align: left;
 }
 
-header .logo span {
-    font-size: 28px;
+header .logo {
+    max-width: clamp(320px, 10vw, 720px);
+    height: auto;
+}
+
+header span {
     font-family: "Work Sans";
+    font-size: 28px;
+    font-weight: 600;
 }
 
 main {
     flex: 1;
-    padding: 32px 24px;
+}
+
+main .inner {
+    max-width: var(--cutoff);
+    margin: 0 auto;
+    padding: 12px 12px;
+    text-align: left;
 }
 
 main h1 {
