@@ -4,93 +4,71 @@
 
     --white: #ffffff;
     --black: #000000;
+
+    --cutoff: 680px;
 }
 
-.wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    text-align: center;
-}
-
-.wrapper > * {
-    padding: 10px;
-    flex: 1 100%;
-}
-
-.header {
-    min-height: 200px;
-    background: var(--primary-color);
-}
-
-.footer {
-    background: var(--secondary-color);
-}
-
-.main {
-    text-align: left;
-    background: var(--black);
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.aside-m1 {
-    background: var(--black);
-}
-
-.aside-m2 {
-    background: var(--black);
-}
-
-.text {
-    font-family: "Work Sans", sans-serif;
-    font-style: normal;
-    color: var(--white);
-}
-
-@media all and (min-width: 800px) {
-    .aside {
-        flex: 1 0 0;
-        display: none;
-    }
-}
-
-@media all and (min-width: 1000px) {
-    .aside-m1 {
-        order: 1;
-    }
-    .main {
-        flex: 2 0px;
-        order: 2;
-    }
-    .aside-m2 {
-        order: 3;
-    }
-    .footer {
-        order: 4;
-    }
-    .aside {
-        display: block;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0px;
+    background: var(--black);
+    font-family: "Work Sans";
+    color: var(--white);
 }
 
-h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0px;
+.page {
+    max-width: var(--cutoff);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-h2 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    margin-top: 0%;
-    margin-bottom: 3rem;
+header {
+    background: var(--primary-color);
+    color: var(--black);
+    width: 100%;
+    margin: 0;
+    padding: 80px 24px;
 }
 
-p {
-    font-size: 1.3rem;
-    font-weight: 200;
+header .inner {
+    max-width: var(--cutoff);
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+header .logo span {
+    font-size: 28px;
+    font-family: "Work Sans";
+}
+
+main {
+    flex: 1;
+    padding: 32px 24px;
+}
+
+main h1 {
+    font-size: 28px;
+    margin: 24px 0 8px;
+}
+
+main p {
+    line-height: 1.4;
+}
+
+footer {
+    background: var(--secondary-color);
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+}
+
+footer .inner {
+    max-width: var(--cutoff);
+    margin: 0 auto;
+    padding: 40px 24px;
 }
