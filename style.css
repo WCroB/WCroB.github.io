@@ -57,11 +57,37 @@ nav {
     color: var(--white);
     width: 100%;
     margin: 0;
+    font-size: 0px;
 }
 
 nav .inner {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    max-width: var(--cutoff);
+    height: 80px;
+    margin: 0 auto;
+    padding-left: 12px;
+    text-align: left;
+}
+
+nav button {
+    height: 80px;
+    width: 80px;
+    margin: 0px;
+
+    font-size: 22px;
+
+    background-color: var(--secondary-color);
+
+    border-width: 0px;
+    border-radius: 0px;
+}
+
+nav button:hover {
+    background-color: var(--primary-color);
+}
+
+nav #selected {
+    color: var(--white);
+    background-color: var(--black);
 }
 
 main {
