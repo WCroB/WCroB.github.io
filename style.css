@@ -52,6 +52,18 @@ header span {
     font-weight: 600;
 }
 
+nav {
+    background: var(--secondary-color);
+    color: var(--white);
+    width: 100%;
+    margin: 0;
+}
+
+nav .inner {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 main {
     flex: 1;
 }
