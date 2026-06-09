@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: "Work Sans";
+    font-family: "Istok Web", "Work Sans";
     background: var(--black);
     color: var(--white);
 }
@@ -39,6 +39,8 @@ header .inner {
     margin: 0 auto;
     padding: 12px 12px;
     text-align: left;
+
+    line-height: 1;
 }
 
 header .logo {
@@ -47,9 +49,11 @@ header .logo {
 }
 
 header span {
-    font-family: "Work Sans";
+    font-family: "Istok Web", "Work Sans";
     font-size: 28px;
     font-weight: 600;
+
+    line-height: 1;
 }
 
 nav {
