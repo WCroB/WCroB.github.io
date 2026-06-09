@@ -53,7 +53,7 @@ header span {
 }
 
 nav {
-    background: var(--secondary-color);
+    background: var(--black);
     color: var(--white);
     width: 100%;
     margin: 0;
@@ -75,22 +75,25 @@ nav button {
 
     font-size: 22px;
 
-    background-color: var(--secondary-color);
+    color: var(--white);
+    background-color: var(--black);
 
     border-width: 0px;
     border-radius: 0px;
 }
 
 nav button:hover {
+    color: var(--black);
     background-color: var(--primary-color);
 }
 
 nav #selected {
-    color: var(--white);
-    background-color: var(--black);
+    background-color: var(--secondary-color);
 }
 
 main {
+    background: var(--secondary-color);
+
     flex: 1;
 }
 
@@ -122,7 +125,7 @@ main p {
 }
 
 footer {
-    background: var(--secondary-color);
+    background: var(--black);
     width: 100%;
     margin: 0;
     padding: 24px;
