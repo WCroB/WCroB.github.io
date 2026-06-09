@@ -48,6 +48,7 @@ header .inner {
 header .logo {
     max-width: clamp(320px, 10vw, 720px);
     height: auto;
+    padding-right: 10px;
 }
 
 header span {
