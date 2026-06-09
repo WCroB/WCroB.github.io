@@ -1,3 +1,4 @@
+/* global */
 :root {
     --primary-color: #c2fe0c;
     --secondary-color: #5200ff;
@@ -27,6 +28,7 @@ body {
     color: var(--white);
 }
 
+/* header */
 header {
     background: var(--primary-color);
     color: var(--black);
@@ -56,6 +58,7 @@ header span {
     line-height: 1;
 }
 
+/* navbar */
 nav {
     background: var(--black);
     color: var(--white);
@@ -77,8 +80,6 @@ nav button {
     width: 80px;
     margin: 0px;
 
-    font-size: 22px;
-
     color: var(--white);
     background-color: var(--black);
 
@@ -95,6 +96,12 @@ nav #selected {
     background-color: var(--secondary-color);
 }
 
+nav span.size-40 {
+    font-size: 40px;
+    font-variation-settings: "OPSZ" 40;
+}
+
+/* main content */
 main {
     background: var(--secondary-color);
 
@@ -128,6 +135,7 @@ main p {
     line-height: 1.4;
 }
 
+/* footer */
 footer {
     background: var(--black);
     width: 100%;
