@@ -23,7 +23,7 @@
 }
 
 body {
-    font-family: "Istok Web", "Work Sans";
+    font-family: "Inter", "Work Sans";
     background: var(--black);
     color: var(--white);
 }
@@ -52,7 +52,7 @@ header .logo {
 }
 
 header span {
-    font-family: "Istok Web", "Work Sans";
+    font-family: "Inter", "Work Sans";
     font-size: 28px;
     font-weight: 600;
 
