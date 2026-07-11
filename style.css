@@ -76,19 +76,23 @@ nav .inner {
     text-align: left;
 }
 
-nav button {
+nav a {
     height: 80px;
     width: 80px;
     margin: 0px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
     color: var(--white);
     background-color: var(--black);
 
     border-width: 0px;
     border-radius: 0px;
+    text-decoration: none;
 }
 
-nav button:hover {
+nav a:hover {
     color: var(--black);
     background-color: var(--primary-color);
 }
