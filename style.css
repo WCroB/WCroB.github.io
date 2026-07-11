@@ -122,10 +122,6 @@ main .inner {
 
 main h1 {
     font-size: 22px;
-    margin: 24px 0 8px;
-}
-
-#intro {
     margin-top: 12px;
     margin-bottom: 0px;
 }
@@ -134,6 +130,7 @@ main h1 {
     font-size: 22px;
     font-weight: 300;
     line-height: 1.2;
+    margin-bottom: 24px;
 }
 
 main p {
@@ -141,6 +138,116 @@ main p {
     text-align: justify;
     margin-top: 3px;
     margin-bottom: 3px;
+}
+
+/* job element */
+.jobelement-current {
+    display: none;
+    background-color: var(--primary-color);
+    color: var(--black);
+    padding: 0.5rem 1rem;
+    font-family: monospace;
+    text-align: left;
+    width: calc(100% + 3rem);
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+}
+
+#current .jobelement-current {
+    font-weight: 600;
+    display: block;
+}
+
+.jobelement-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.jobelement-header {
+    margin-bottom: 1rem;
+}
+
+#current {
+    border: 2px solid var(--primary-color);
+}
+
+.jobelement-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
+}
+
+.jobelement-title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.jobelement-button {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.jobelement-company {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.jobelement-dates {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+}
+
+.jobelement-button {
+    background-color: var(--primary-color);
+    color: var(--black);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+}
+
+.jobelement-button .material-symbols-outlined {
+    font-size: 24px;
+    font-variation-settings: "OPSZ" 24;
+    line-height: 24px;
+}
+
+.jobelement-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.jobelement-company {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.jobelement-dates {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+}
+
+.jobelement-description {
+    line-height: 1.5;
+    color: var(--white);
+}
+
+.jobelement-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.jobelement-skill {
+    background-color: var(--primary-color);
+    color: var(--black);
+    padding: 0.25rem 0.75rem;
+    font-weight: 500;
 }
 
 /* footer */
