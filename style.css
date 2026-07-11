@@ -134,6 +134,9 @@ main h1 {
 
 main p {
     line-height: 1.4;
+    text-align: justify;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 /* footer */
