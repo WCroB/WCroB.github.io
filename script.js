@@ -16,4 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    const repeatCount = 10;
+    document.querySelectorAll('.jobelement-modal-top span').forEach(span => {
+        const text = span.textContent;
+        span.textContent = Array(repeatCount).fill(text).join(' // ');
+    });
+
+    document.querySelectorAll('.jobelement-modal-bottom span').forEach(span => {
+        const text = span.textContent;
+        span.textContent = Array(repeatCount).fill(text).join(' // ');
+    });
 });
