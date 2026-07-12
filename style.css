@@ -304,6 +304,18 @@ footer {
     white-space: nowrap;
 }
 
+#current .jobelement-modal-top,
+#current .jobelement-modal-bottom {
+    background: red;
+}
+
+#current .jobelement-modal-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
 .jobelement-modal-top span {
     display: inline-block;
     white-space: nowrap;
