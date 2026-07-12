@@ -166,17 +166,14 @@ main p {
 }
 
 .jobelement-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1rem;
     margin-bottom: 1rem;
 }
 
 #current {
     border: 2px solid var(--primary-color);
-}
-
-.jobelement-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.5rem 1rem;
 }
 
 .jobelement-title {
@@ -235,17 +232,32 @@ main p {
 .jobelement-description {
     line-height: 1.5;
     color: var(--white);
+    margin-bottom: 1rem;
 }
 
 .jobelement-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .jobelement-skill {
     background-color: var(--primary-color);
     color: var(--black);
+    padding: 0.25rem 0.75rem;
+    font-weight: 500;
+}
+
+.jobelement-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.jobelement-tech {
+    background-color: var(--secondary-color);
+    color: var(--white);
     padding: 0.25rem 0.75rem;
     font-weight: 500;
 }
