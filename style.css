@@ -198,7 +198,7 @@ main p {
 }
 
 .jobelement-button {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--black);
     width: 24px;
     height: 24px;
@@ -206,6 +206,10 @@ main p {
     align-items: center;
     justify-content: center;
     justify-self: end;
+}
+
+.jobelement-button:hover {
+    background-color: var(--primary-color);
 }
 
 .jobelement-button .material-symbols-outlined {
