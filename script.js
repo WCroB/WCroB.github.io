@@ -1,4 +1,86 @@
+// Perlin Noise implementation
+class PerlinNoise {
+    constructor() {
+        this.p = [];
+        this.size = 256;
+        this.init();
+    }
+    
+    init() {
+        this.p = [];
+        for (let i = 0; i < this.size * 2; i++) {
+            this.p[i] = Math.floor(Math.random() * this.size);
+        }
+    }
+    
+    fade(t) {
+        return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+    
+    lerp(t, a, b) {
+        return a + t * (b - a);
+    }
+    
+    grad(hash, x, y) {
+        const h = hash & 15;
+        const u = h < 8 ? x : y;
+        const v = h < 4 ? y : (h === 12 || h === 14 ? x : 0);
+        return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+    }
+    
+    noise2(x, y) {
+        const X = Math.floor(x) & 255;
+        const Y = Math.floor(y) & 255;
+        
+        x -= Math.floor(x);
+        y -= Math.floor(y);
+        
+        const u = this.fade(x);
+        const v = this.fade(y);
+        
+        const a = this.p[X] + Y;
+        const aa = this.p[a];
+        const ab = this.p[a + 1];
+        const b = this.p[X + 1] + Y;
+        const ba = this.p[b];
+        const bb = this.p[b + 1];
+        
+        return this.lerp(v, 
+            this.lerp(u, this.grad(this.p[aa], x, y), this.grad(this.p[ba], x - 1, y)),
+            this.lerp(u, this.grad(this.p[ab], x, y - 1), this.grad(this.p[bb], x - 1, y - 1))
+        );
+    }
+}
+
+// Global Perlin instance
+const perlin = new PerlinNoise();
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Animation state
+    let animationFrameId = null;
+    let lastTime = 0;
+    
+    function animateBlocks(timestamp) {
+        if (!lastTime) lastTime = timestamp;
+        const elapsed = timestamp - lastTime;
+        lastTime = timestamp;
+        
+        const currentModalMain = document.querySelector('#current .jobelement-modal-main');
+        if (currentModalMain) {
+            fillModalMainWithBlocks(timestamp / 1000);
+        }
+        
+        animationFrameId = requestAnimationFrame(animateBlocks);
+    }
+    
+    function stopAnimation() {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+            lastTime = 0;
+        }
+    }
+
     document.querySelectorAll('.jobelement-button').forEach(button => {
         button.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -28,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
         span.textContent = Array(repeatCount).fill(text).join(' // ');
     });
 
-    // Fill current job modal-main with random block characters
-    function fillModalMainWithBlocks() {
+    // Fill current job modal-main with Perlin noise block characters
+    function fillModalMainWithBlocks(time = 0) {
         const modalMain = document.querySelector('#current .jobelement-modal-main');
         if (!modalMain) return;
         
@@ -85,22 +167,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const cols = Math.max(1, Math.floor(preContentWidth / charWidth));
         const rows = Math.max(1, Math.floor(preContentHeight / lineHeight));
         
-        // Generate content with weighted block characters
-        const blockChars = ['░', '▒', '▓', '█'];
-        const weightedChars = [];
-        for (let i = 0; i < 90; i++) {
-            weightedChars.push(...blockChars);
-        }
-        for (let i = 0; i < 10; i++) {
-            weightedChars.push(' ');
+        // Perlin noise parameters - larger scale, faster X for wavy motion
+        const scale = 0.12;
+        const speedX = 0.6;
+        const speedY = 0.15;
+        
+        // Map noise value to block character
+        function noiseToChar(n) {
+            const blockChars = ['░', '▒', '▓', '█'];
+            // Normalize from [-1,1] to [0,1] and map to character
+            const normalized = (n + 1) / 2;
+            const idx = Math.floor(normalized * blockChars.length);
+            return blockChars[Math.min(Math.max(idx, 0), blockChars.length - 1)];
         }
         
         let content = '';
         for (let i = 0; i < rows; i++) {
             let row = '';
             for (let j = 0; j < cols; j++) {
-                const randomChar = weightedChars[Math.floor(Math.random() * weightedChars.length)];
-                row += randomChar;
+                const nx = j * scale + time * speedX;
+                const ny = i * scale + time * speedY;
+                const noiseVal = perlin.noise2(nx, ny);
+                row += noiseToChar(noiseVal);
             }
             content += row + '\n';
         }
@@ -113,19 +201,34 @@ document.addEventListener('DOMContentLoaded', function() {
         pre.style.padding = '0';
     }
     
-    // Fill initially - but modal may not be visible, so try anyway
-    fillModalMainWithBlocks();
-    
-    // Fill when modal is opened
+    // Start animation when modal is opened
     document.querySelectorAll('.jobelement-button').forEach(button => {
         button.addEventListener('click', function(e) {
             const modal = this.closest('.jobelement-container').querySelector('.jobelement-modal');
             if (modal) {
-                setTimeout(fillModalMainWithBlocks, 100);
+                // Start animation
+                stopAnimation();
+                setTimeout(() => {
+                    lastTime = 0;
+                    animateBlocks(0);
+                }, 100);
             }
         });
     });
     
-    // Handle window resize for responsiveness
-    window.addEventListener('resize', fillModalMainWithBlocks);
+    // Stop animation when modal is closed
+    document.querySelectorAll('.jobelement-modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                stopAnimation();
+            }
+        });
+    });
+    
+    // Handle window resize - restart animation to recalculate
+    window.addEventListener('resize', () => {
+        if (animationFrameId) {
+            fillModalMainWithBlocks(performance.now() / 1000);
+        }
+    });
 });
