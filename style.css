@@ -199,7 +199,7 @@ main p {
 
 .jobelement-button {
     background-color: var(--secondary-color);
-    color: var(--black);
+    color: var(--white);
     width: 24px;
     height: 24px;
     display: flex;
@@ -210,6 +210,7 @@ main p {
 
 .jobelement-button:hover {
     background-color: var(--primary-color);
+    color: var(--black);
 }
 
 .jobelement-button .material-symbols-outlined {
