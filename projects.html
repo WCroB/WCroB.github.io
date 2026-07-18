@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <title>Wilson Crochet - Projects</title>
-        <link rel="stylesheet" href="style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <!-- fonts -->
@@ -18,43 +17,45 @@
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=add_2,conversion_path,folder_code&display=block"
             rel="stylesheet"
         />
+
+        <!-- voluntary decorrelation -->
+        <style>
+            body {
+                margin: 0;
+                background-color: black;
+            }
+
+            main, div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                height: 100vh;
+            }
+
+            p, a {
+                font-family: monospace;
+                font-size: 1.2vw;
+                color: red;
+            }
+
+            a:hover {
+                color: #c2fe0c;
+            }
+        </style>
     </head>
 
     <body>
-        <header>
-            <div class="inner">
-                <img class="logo" src="rsrc/logo.svg" />
-                <span>Wilson Crochet</span>
-            </div>
-        </header>
-
-        <nav>
-            <div class="inner">
-                <a href="main.html" title="Homepage">
-                    <span class="material-symbols-outlined size-40">
-                        add_2
-                    </span>
-                </a>
-                <a href="experience.html" title="Experience">
-                    <span class="material-symbols-outlined size-40">
-                        conversion_path
-                    </span>
-                </a>
-                <a href="projects.html" title="Projects" id="selected">
-                    <span class="material-symbols-outlined size-40">
-                        folder_code
-                    </span>
-                </a>
-            </div>
-        </nav>
-
         <main>
-            <div class="inner">
+            <div>
+                <p>
+                    Work in progress...
+                </p>
+                <a href="main.html" title="Homepage">
+                    Back to homepage
+                </a>
             </div>
         </main>
-
-        <footer>
-            <div class="inner"></div>
-        </footer>
     </body>
 </html>
