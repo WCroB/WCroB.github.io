@@ -21,27 +21,43 @@
         <!-- voluntary decorrelation -->
         <style>
             body {
-                margin: 0;
+                margin: 0px 0px;
                 background-color: black;
             }
 
-            main, div {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                height: 100vh;
+            div {
+                font-family: monospace;
+                font-size: 16px;
+                color: red;
+                margin: 8px 8px 8px 8px;
             }
 
-            p, a {
-                font-family: monospace;
-                font-size: 1.2vw;
+            div > pre {
+                margin: 0;
+
+                white-space: pre-wrap;
+                overflow-wrap: break-word;
+                word-break: break-word;
+            }
+
+            pre span {
+              display: block;
+              visibility: hidden;
+              animation: show 0s forwards;
+            }
+
+            div > a, div > p {
                 color: red;
             }
 
-            a:hover {
+            div > a:hover {
                 color: #c2fe0c;
+            }
+
+            @keyframes show {
+              to {
+                visibility: visible;
+              }
             }
         </style>
     </head>
@@ -49,13 +65,70 @@
     <body>
         <main>
             <div>
-                <p>
-                    Work in progress...
-                </p>
-                <a href="main.html" title="Homepage">
-                    Back to homepage
-                </a>
+                <pre id="terminal">
+###     ### ### #########
+###     ###     #########
+### ### ### ### ###
+### ### ### ### ###
+########### ### #########
+########### ### ######### Wilson Crochet
+---
+
+&lt;Unauthorized access-alarm 2521-&gt;
+&lt;Security Breached 50-h&lt;291.7.577.456&gt;-&gt;
+
+*00010104A80600A2F0C4EBA182E4A80584F2E00BC876700FF46202EFE4*3A
+EFE4A2F0C2F074EBA1DC672FFB280504F6700079d4202EFE4E6000079*E700
+12D40FE52722AB2866610202EFE5253AEFE52101B4880
+^^Fire and @3DC39 aspects of the theory are as follows: each
+society has some controlling force or forces which decide its
+direction, but the relationships in society are arbitrary-
+humanity can relate to money, machines, neighbors, anything
+really; %6582@1
+
+&lt;logical reset @67FC229&gt;
+individual character and personality are preserved in stories,
+movies, Rom-personalities, etc; although individual expression
+is a universal ability, individual freedom is constrained by
+the society.(see attached figure)^^
+*584F2E00206DFDCA7008C030780066C6202EFE4A53AEFE4A2F0C2F074E
+*BA1E2A72FFB280504F6690600007F67025B086660E101B488048C02C00
+&lt;logical reset @67FC231&gt;
+
+&lt;Spurious Interrupt- Breach Disabled&gt;
+&lt;Further Access Denied&gt;
+
+&lt;Breach Location Undetermined&gt;
+                </pre>
+                <div id="post">
+                    <p>
+                        ***REDIRECTION TO HOMEPAGE START***
+                    </p>
+                    <a href="main.html" title="Homepage">
+                        ***TRANSPORT WHEN READY***
+                    </a>
+                </div>
             </div>
         </main>
     </body>
+
+    <script>
+      const pre = document.getElementById("terminal");
+      const post = document.getElementById("post");
+
+      const lines = pre.textContent.split("\n");
+      const delay = 75; // ms between lines
+
+      post.hidden = true;
+      pre.textContent = "";
+
+      lines.forEach((line, i) => {
+        const span = document.createElement("span");
+        span.textContent = line || "\u00A0";
+        span.style.animationDelay = `${i * delay}ms`;
+        pre.appendChild(span);
+      });
+
+      setTimeout(() => {post.hidden = false;}, lines.length * delay);
+    </script>
 </html>
